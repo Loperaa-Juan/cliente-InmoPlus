@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export const Inmuebles = () => {
     const [inmuebles, setInmuebles] = useState([]);
     useEffect(() => {
-        const url = 'http://127.0.0.1:8070/consultarinmueble';
+        const url = 'http://localhost:8070/consultarinmueble';
         fetch(url)
             .then(response => response.json())
             .then(data => setInmuebles(data))
@@ -20,6 +20,7 @@ export const Inmuebles = () => {
                         <TableHead className="font-semibold text-gray-700">Descripción</TableHead>
                         <TableHead className="font-semibold text-gray-700">Id Tipo Inmueble</TableHead>
                         <TableHead className="font-semibold text-gray-700">Id Ciudad</TableHead>
+                        <TableHead className="font-semibold text-gray-700">Nombre Ciudad</TableHead>
                         <TableHead className="font-semibold text-gray-700">Precio Inmueble</TableHead>
                         <TableHead className="font-semibold text-gray-700">Activo</TableHead>
                         <TableHead className="font-semibold text-gray-700">Fecha de Actualización</TableHead>
@@ -33,8 +34,9 @@ export const Inmuebles = () => {
                             <TableCell className="text-gray-900">{inmueble[2]}</TableCell>
                             <TableCell className="font-medium text-gray-900">{inmueble[3]}</TableCell>
                             <TableCell className="text-blue-600 font-semibold">{inmueble[4]}</TableCell>
-                            <TableCell className="text-gray-900">{inmueble[5] === '1' ? 'Sí' : 'No'}</TableCell>
-                            <TableCell className="text-gray-600">{inmueble[6]}</TableCell>
+                            <TableCell className="text-blue-600 font-semibold">{inmueble[5]}</TableCell>
+                            <TableCell className="text-gray-900">{inmueble[6] === '1' ? 'Sí' : 'No'}</TableCell>
+                            <TableCell className="text-gray-600">{inmueble[7]}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
